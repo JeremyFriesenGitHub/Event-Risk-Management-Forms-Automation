@@ -1,11 +1,11 @@
 import { chromium } from 'playwright'
 
-import { RiskManagement } from './helpers/risk-management'
-import { Contacts } from './helpers/contacts'
-import { EventDetails } from './helpers/event-details'
-import { EmergencyResponse } from './helpers/emergency-response'
-import { Logistics } from './helpers/logistics'
-import { OnlineInformation } from './helpers/online-information'
+import { RiskManagement } from '../helpers/risk-management'
+import { Contacts } from '../helpers/contacts'
+import { EventDetails } from '../helpers/event-details'
+import { EmergencyResponse } from '../helpers/emergency-response'
+import { Logistics } from '../helpers/logistics'
+import { OnlineInformation } from '../helpers/online-information'
 
 
 // -------------------------------------------------------------------ONLINE--------------------------------------------------------------

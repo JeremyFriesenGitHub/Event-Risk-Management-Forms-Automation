@@ -37,12 +37,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var playwright_1 = require("playwright");
-var risk_management_1 = require("./helpers/risk-management");
-var contacts_1 = require("./helpers/contacts");
-var event_details_1 = require("./helpers/event-details");
-var emergency_response_1 = require("./helpers/emergency-response");
-var logistics_1 = require("./helpers/logistics");
-var online_information_1 = require("./helpers/online-information");
+var risk_management_1 = require("../helpers/risk-management");
+var contacts_1 = require("../helpers/contacts");
+var event_details_1 = require("../helpers/event-details");
+var emergency_response_1 = require("../helpers/emergency-response");
+var logistics_1 = require("../helpers/logistics");
+var online_information_1 = require("../helpers/online-information");
 // -------------------------------------------------------------------ONLINE--------------------------------------------------------------
 function scheduleOnline(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL, LOGISICS_SAFETY_CONCENRS) {
     return __awaiter(this, void 0, void 0, function () {
