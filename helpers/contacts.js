@@ -37,53 +37,53 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Contacts = Contacts;
-function Contacts(page, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE) {
+function Contacts(formLayout, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, page.locator('#primary_first_name').fill(PRIMARY_FIRST_NAME)];
+                case 0: return [4 /*yield*/, formLayout.fillPrimaryFirstNameTextBox(PRIMARY_FIRST_NAME)];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('#primary_last_name').fill(PRIMARY_LAST_NAME)];
+                    return [4 /*yield*/, formLayout.fillPrimaryLastNameTextBox(PRIMARY_LAST_NAME)];
                 case 2:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('#primary_carleton_id').fill(PRIMARY_CARLETON_ID)];
+                    return [4 /*yield*/, formLayout.fillPrimaryCarletonIdTextBox(PRIMARY_CARLETON_ID)];
                 case 3:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('What is the name of the').fill('cuHacking')];
+                    return [4 /*yield*/, formLayout.fillPrimaryOrganizationTextBox('cuHacking')];
                 case 4:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('fieldset').filter({ hasText: 'First Name Last Name Carleton University ID What is the name of the' }).getByLabel('Student').check()];
+                    return [4 /*yield*/, formLayout.checkPrimaryStatusRadioButton()];
                 case 5:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('#primary_email').fill(PRIMARY_EMAIL)];
+                    return [4 /*yield*/, formLayout.fillPrimaryEmailTextBox(PRIMARY_EMAIL)];
                 case 6:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Confirm Email').fill(PRIMARY_EMAIL)];
+                    return [4 /*yield*/, formLayout.fillPrimaryConfirmEmailTextBox(PRIMARY_EMAIL)];
                 case 7:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('#primary_phone').fill(PRIMARY_PHONE)];
+                    return [4 /*yield*/, formLayout.fillPrimaryPhoneTextBox(PRIMARY_PHONE)];
                 case 8:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('#secondary_first_name').fill(SECONDARY_FIRST_NAME)];
+                    return [4 /*yield*/, formLayout.fillSecondaryFirstNameTextBox(SECONDARY_FIRST_NAME)];
                 case 9:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('#secondary_last_name').fill(SECONDARY_LAST_NAME)];
+                    return [4 /*yield*/, formLayout.fillSecondaryLastNameTextBox(SECONDARY_LAST_NAME)];
                 case 10:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('#secondary_carleton_id').fill(SECONDARY_CARLETON_ID)];
+                    return [4 /*yield*/, formLayout.fillSecondaryCarletonIdTextBox(SECONDARY_CARLETON_ID)];
                 case 11:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Position within organization').fill('Community Engagement')];
+                    return [4 /*yield*/, formLayout.fillSecondaryOrganizationTextBox('Community Engagement')];
                 case 12:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('fieldset').filter({ hasText: 'First Name Last Name Carleton University ID Position within organization Role' }).getByLabel('Student').check()];
+                    return [4 /*yield*/, formLayout.checkSecondaryStatusRadioButton()];
                 case 13:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('#secondary_email').fill(SECONDARY_EMAIL)];
+                    return [4 /*yield*/, formLayout.fillSecondaryEmailTextBox(SECONDARY_EMAIL)];
                 case 14:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('#secondary_phone').fill(SECONDARY_PHONE)];
+                    return [4 /*yield*/, formLayout.fillSecondaryPhoneTextBox(SECONDARY_PHONE)];
                 case 15:
                     _a.sent();
                     return [2 /*return*/];

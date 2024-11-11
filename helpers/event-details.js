@@ -37,38 +37,38 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventDetails = EventDetails;
-function EventDetails(page, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES) {
+function EventDetails(formLayout, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, page.getByLabel('Event Title:').fill(EVENT_TITLE)];
+                case 0: return [4 /*yield*/, formLayout.fillEventTitleTextBox(EVENT_TITLE)];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Event Date:').fill(EVENT_DATE)]; //date in yyyy/mm/dd format
+                    return [4 /*yield*/, formLayout.fillEventDateTextBox(EVENT_DATE)]; //date in yyyy/mm/dd format
                 case 2:
                     _a.sent(); //date in yyyy/mm/dd format
-                    return [4 /*yield*/, page.getByLabel('Event Start Time:').fill(EVENT_START_TIME)]; //time in HH:MM AM/PM format
+                    return [4 /*yield*/, formLayout.fillEventStartTimeTextBox(EVENT_START_TIME)]; //time in HH:MM AM/PM format
                 case 3:
                     _a.sent(); //time in HH:MM AM/PM format
-                    return [4 /*yield*/, page.getByLabel('Event End Time:').fill(EVENT_END_TIME)]; //time in HH:MM AM/PM format
+                    return [4 /*yield*/, formLayout.fillEventEndTimeTextBox(EVENT_END_TIME)]; //time in HH:MM AM/PM format
                 case 4:
                     _a.sent(); //time in HH:MM AM/PM format
-                    return [4 /*yield*/, page.getByLabel('Description of the').fill(EVENT_DESCRIPTION)];
+                    return [4 /*yield*/, formLayout.fillEventDescriptionTextBox(EVENT_DESCRIPTION)];
                 case 5:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Carleton University Students').check()];
+                    return [4 /*yield*/, formLayout.checkYesCarletonStudentsRadioButton()];
                 case 6:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Staff and Faculty').check()];
+                    return [4 /*yield*/, formLayout.checkYesStaffFacultyRadioButton()];
                 case 7:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Alumni').check()];
+                    return [4 /*yield*/, formLayout.checkYesAlumniRadioButton()];
                 case 8:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="event_minors"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoMinorsRadioButton()];
                 case 9:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="event_vip"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoVipRadioButton()];
                 case 10:
                     _a.sent();
                     return [2 /*return*/];

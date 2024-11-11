@@ -37,23 +37,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OnlineInformation = OnlineInformation;
-function OnlineInformation(page, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN) {
+function OnlineInformation(formLayout, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, page.getByLabel('What platform will be used').fill(ONLINE_PLATFORM)];
+                case 0: return [4 /*yield*/, formLayout.fillOnlinePlatformTextBox(ONLINE_PLATFORM)];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('What topic will be discussed/').fill(ONLINE_TOPICS)];
+                    return [4 /*yield*/, formLayout.fillOnlineTopicsTextBox(ONLINE_TOPICS)];
                 case 2:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('What is the location where').fill(ONLINE_LOCATION)];
+                    return [4 /*yield*/, formLayout.fillOnlineLocationTextBox(ONLINE_LOCATION)];
                 case 3:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('How many people will be').fill(ONLINE_ORGANIZERS)];
+                    return [4 /*yield*/, formLayout.fillOnlineOrganizersTextBox(ONLINE_ORGANIZERS)];
                 case 4:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('How many people will attend').fill(ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN)];
+                    return [4 /*yield*/, formLayout.fillOnlineOrganizersAttendenceFromOriginTextBox(ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN)];
                 case 5:
                     _a.sent();
                     return [2 /*return*/];

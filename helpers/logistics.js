@@ -37,26 +37,26 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Logistics = Logistics;
-function Logistics(page) {
+function Logistics(formLayout) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, page.locator('input[name="contracts_vendor"]').first().check()];
+                case 0: return [4 /*yield*/, formLayout.checkNoContractsVendorRadioButton()];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="contracts_liability"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoContractsLiabilityRadioButton()];
                 case 2:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="contracts_insurance_rental"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoContractsInsuranceRentalRadioButton()];
                 case 3:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="contracts_insurance_certificate"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoContractsInsuranceCertificateRadioButton()];
                 case 4:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="rights_implications"]').nth(1).check()];
+                    return [4 /*yield*/, formLayout.checkYesRightsImplicationsRadioButton()];
                 case 5:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="rights_risks"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoRightsRisksRadioButton()];
                 case 6:
                     _a.sent();
                     return [2 /*return*/];

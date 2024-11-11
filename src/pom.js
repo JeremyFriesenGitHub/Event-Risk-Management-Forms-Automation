@@ -66,6 +66,59 @@ var FormsLayout = /** @class */ (function () {
         this.rightsTextBox = page.locator('#rights_other');
         // hybrid form
         this.hybridRegistrationRadioButton = page.locator('input[name="event_tix"]').nth(1);
+        // helper functions - risk management
+        this.speakersRadioButton = page.locator('fieldset').filter({ hasText: 'Will there be any speaker(s)' }).getByLabel('Yes', { exact: true });
+        this.speakersTopicsTextBox = page.getByLabel('What topics will the speaker(');
+        this.speakersFullNamesTextBox = page.getByLabel('Please provide full name(s)');
+        this.speakersWebsiteUrlTextBox = page.getByLabel('Does the speaker have a');
+        // helper functions - contacts
+        this.primaryFirstNameTextBox = page.locator('#primary_first_name');
+        this.primaryLastNameTextBox = page.locator('#primary_last_name');
+        this.primaryCarletonIdTextBox = page.locator('#primary_carleton_id');
+        this.primaryOrganizationTextBox = page.getByLabel('What is the name of the');
+        this.primaryStatusRadioButton = page.locator('fieldset').filter({ hasText: 'First Name Last Name Carleton University ID What is the name of the' }).getByLabel('Student');
+        this.primaryEmailTextBox = page.locator('#primary_email');
+        this.primaryConfirmEmailTextBox = page.getByLabel('Confirm Email');
+        this.primaryPhoneTextBox = page.locator('#primary_phone');
+        this.secondaryFirstNameTextBox = page.locator('#secondary_first_name');
+        this.secondaryLastNameTextBox = page.locator('#secondary_last_name');
+        this.secondaryCarletonIdTextBox = page.locator('#secondary_carleton_id');
+        this.secondaryOrganizationTextBox = page.getByLabel('Position within organization');
+        this.secondaryStatusRadioButton = page.locator('fieldset').filter({ hasText: 'First Name Last Name Carleton University ID Position within organization Role' }).getByLabel('Student');
+        this.secondaryEmailTextBox = page.locator('#secondary_email');
+        this.secondaryPhoneTextBox = page.locator('#secondary_phone');
+        // helper functions - event details
+        this.eventTitleTextBox = page.getByLabel('Event Title:');
+        this.eventDateTextBox = page.getByLabel('Event Date:');
+        this.eventStartTimeTextBox = page.getByLabel('Event Start Time:');
+        this.eventEndTimeTextBox = page.getByLabel('Event End Time:');
+        this.eventDescriptionTextBox = page.getByLabel('Description of the');
+        this.carletonStudentsRadioButton = page.getByLabel('Carleton University Students');
+        this.staffFacultyRadioButton = page.getByLabel('Staff and Faculty');
+        this.alumniRadioButton = page.getByLabel('Alumni');
+        this.minorsRadioButton = page.locator('input[name="event_minors"]').first();
+        this.vipRadioButton = page.locator('input[name="event_vip"]').first();
+        // helper functions - emergency response
+        this.emergencyFirstAidRadioButton = page.locator('input[name="emergency_firstaid"]').first();
+        this.emergencyHospitalRadioButton = page.locator('input[name="emergency_hospital"]').nth(1);
+        this.emergencyEvacRadioButton = page.locator('input[name="emergency_evac"]').first();
+        this.emergencyFlamesRadioButton = page.locator('input[name="emergency_flames"]').first();
+        this.emergencyCrowdControlRadioButton = page.locator('fieldset').filter({ hasText: 'Will crowd control measures' }).getByLabel('No');
+        this.emergencySafetyConcernsTextBox = page.getByLabel('Are there any other special');
+        this.emergencySafetyRisksTextBox = page.locator('#safety_risk');
+        // helper functions - logistics
+        this.logisticsContractsVendorRadioButton = page.locator('input[name="contracts_vendor"]').first();
+        this.logisticsContractsLiabilityRadioButton = page.locator('input[name="contracts_liability"]').first();
+        this.logisticsContractsInsuranceRentalRadioButton = page.locator('input[name="contracts_insurance_rental"]').first();
+        this.logisticsContractsInsuranceCertificateRadioButton = page.locator('input[name="contracts_insurance_certificate"]').first();
+        this.logisticsRightsImplicationsRadioButton = page.locator('input[name="rights_implications"]').nth(1);
+        this.logisticsRightsRisksRadioButton = page.locator('input[name="rights_risks"]').first();
+        // helper functions - online information
+        this.onlinePlatformTextBox = page.getByLabel('What platform will be used');
+        this.onlineTopicsTextBox = page.getByLabel('What topic will be discussed/');
+        this.onlineLocationTextBox = page.getByLabel('What is the location where');
+        this.onlineOrganizersTextBox = page.getByLabel('How many people will be');
+        this.onlineOrganizersAttendenceFromOriginTextBox = page.getByLabel('How many people will attend');
     }
     // goto
     FormsLayout.prototype.goto = function () {
@@ -341,6 +394,576 @@ var FormsLayout = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.hybridRegistrationRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    // HELPER FUNCTIONS - RISK MANAGEMENT
+    FormsLayout.prototype.checkYesSpeakersRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.speakersRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillSpeakersTopicsTextBox = function (topics) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.speakersTopicsTextBox.fill(topics)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillSpeakersFullNamesTextBox = function (names) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.speakersFullNamesTextBox.fill(names)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillSpeakersWebsiteUrlTextBox = function (url) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.speakersWebsiteUrlTextBox.fill(url)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    // HELPER FUNCTIONS - CONTACTS
+    FormsLayout.prototype.fillPrimaryFirstNameTextBox = function (firstName) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.primaryFirstNameTextBox.fill(firstName)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillPrimaryLastNameTextBox = function (lastName) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.primaryLastNameTextBox.fill(lastName)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillPrimaryCarletonIdTextBox = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.primaryCarletonIdTextBox.fill(id)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillPrimaryOrganizationTextBox = function (organization) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.primaryOrganizationTextBox.fill(organization)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkPrimaryStatusRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.primaryStatusRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillPrimaryEmailTextBox = function (email) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.primaryEmailTextBox.fill(email)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillPrimaryConfirmEmailTextBox = function (email) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.primaryConfirmEmailTextBox.fill(email)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillPrimaryPhoneTextBox = function (phone) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.primaryPhoneTextBox.fill(phone)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillSecondaryFirstNameTextBox = function (firstName) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.secondaryFirstNameTextBox.fill(firstName)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillSecondaryLastNameTextBox = function (lastName) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.secondaryLastNameTextBox.fill(lastName)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillSecondaryCarletonIdTextBox = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.secondaryCarletonIdTextBox.fill(id)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillSecondaryOrganizationTextBox = function (organization) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.secondaryOrganizationTextBox.fill(organization)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkSecondaryStatusRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.secondaryStatusRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillSecondaryEmailTextBox = function (email) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.secondaryEmailTextBox.fill(email)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillSecondaryPhoneTextBox = function (phone) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.secondaryPhoneTextBox.fill(phone)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    // HELPER FUNCTIONS - EVENT DETAILS
+    FormsLayout.prototype.fillEventTitleTextBox = function (title) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.eventTitleTextBox.fill(title)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillEventDateTextBox = function (date) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.eventDateTextBox.fill(date)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillEventStartTimeTextBox = function (time) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.eventStartTimeTextBox.fill(time)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillEventEndTimeTextBox = function (time) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.eventEndTimeTextBox.fill(time)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillEventDescriptionTextBox = function (description) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.eventDescriptionTextBox.fill(description)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkYesCarletonStudentsRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.carletonStudentsRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkYesStaffFacultyRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.staffFacultyRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkYesAlumniRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.alumniRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkNoMinorsRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.minorsRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkNoVipRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.vipRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    // HELPER FUNCTIONS - EMERGENCY RESPONSE
+    FormsLayout.prototype.checkNoEmergencyFirstAidRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.emergencyFirstAidRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkYesEmergencyHospitalRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.emergencyHospitalRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkNoEmergencyEvacRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.emergencyEvacRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkNoEmergencyFlamesRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.emergencyFlamesRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkNoEmergencyCrowdControlRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.emergencyCrowdControlRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillEmergencySafetyConcernsTextBox = function (concerns) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.emergencySafetyConcernsTextBox.fill(concerns)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillEmergencySafetyRisksTextBox = function (risks) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.emergencySafetyRisksTextBox.fill(risks)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    // HELPER FUNCTIONS - LOGISTICS
+    FormsLayout.prototype.checkNoContractsVendorRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.logisticsContractsVendorRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkNoContractsLiabilityRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.logisticsContractsLiabilityRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkNoContractsInsuranceRentalRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.logisticsContractsInsuranceRentalRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkNoContractsInsuranceCertificateRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.logisticsContractsInsuranceCertificateRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkYesRightsImplicationsRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.logisticsRightsImplicationsRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.checkNoRightsRisksRadioButton = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.logisticsRightsRisksRadioButton.check()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    // HELPER FUNCTIONS - ONLINE INFORMATION
+    FormsLayout.prototype.fillOnlinePlatformTextBox = function (platform) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.onlinePlatformTextBox.fill(platform)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillOnlineTopicsTextBox = function (topics) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.onlineTopicsTextBox.fill(topics)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillOnlineLocationTextBox = function (location) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.onlineLocationTextBox.fill(location)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillOnlineOrganizersTextBox = function (organizers) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.onlineOrganizersTextBox.fill(organizers)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FormsLayout.prototype.fillOnlineOrganizersAttendenceFromOriginTextBox = function (attendees) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.onlineOrganizersAttendenceFromOriginTextBox.fill(attendees)];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];

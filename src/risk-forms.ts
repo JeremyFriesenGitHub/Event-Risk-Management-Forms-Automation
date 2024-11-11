@@ -19,15 +19,15 @@ async function scheduleOnline(PRIMARY_FIRST_NAME: string, PRIMARY_LAST_NAME: str
   await formLayout.goto()
   await formLayout.clickOnlineButton()
 
-  await Contacts(page, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)
+  await Contacts(formLayout, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)
 
   await formLayout.fillExpectedOnlineAttendeesTextBox(EVENT_EXPECTED_ATTENDEES)
   await formLayout.checkYesRegistrationRadioButton()
 
-  await EventDetails(page, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)
-  await OnlineInformation(page, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN)
-  await RiskManagement(page, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)
-  await Logistics(page)
+  await EventDetails(formLayout, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)
+  await OnlineInformation(formLayout, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN)
+  await RiskManagement(formLayout, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)
+  await Logistics(formLayout)
 
   await formLayout.fillSpecialConcernsOnlineTextBox(LOGISICS_SAFETY_CONCENRS)
 
@@ -44,7 +44,7 @@ async function scheduleInPerson(PRIMARY_FIRST_NAME: string, PRIMARY_LAST_NAME: s
   await formLayout.goto()
   await formLayout.clickInPersonButton()
 
-  await Contacts(page, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)
+  await Contacts(formLayout, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)
   
   await formLayout.fillEventLocationTextBox(EVENT_LOCATION)
   await formLayout.checkYesEventLocationRadioButton()
@@ -53,12 +53,12 @@ async function scheduleInPerson(PRIMARY_FIRST_NAME: string, PRIMARY_LAST_NAME: s
   await formLayout.checkNoHealthInsuranceRadioButton()
   await formLayout.checkNoPhotoIdRadioButton()
    
-  await EventDetails(page, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)
+  await EventDetails(formLayout, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)
 
   await formLayout.checkNoAlcoholRadioButton()
 
-  await RiskManagement(page, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)
-  await EmergencyResponse(page, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS)
+  await RiskManagement(formLayout, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)
+  await EmergencyResponse(formLayout, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS)
 
   await formLayout.checkNoTransportationRadioButton()
   await formLayout.checkNoOutOfProvinceRadioButton()
@@ -67,7 +67,7 @@ async function scheduleInPerson(PRIMARY_FIRST_NAME: string, PRIMARY_LAST_NAME: s
   await formLayout.fillCleanupTextBox(LOGISTICS_CLEANUP_PEOPLE)
   await formLayout.checkNoOvernightRadioButton() 
   
-  await Logistics(page)
+  await Logistics(formLayout)
 
   await formLayout.fillRightsTextBox(LOGISICS_SAFETY_CONCENRS)
 
@@ -84,7 +84,7 @@ async function scheduleHybrid(PRIMARY_FIRST_NAME: string, PRIMARY_LAST_NAME: str
   await formLayout.goto()
   await formLayout.clickHybridButton()
 
-  await Contacts(page, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)
+  await Contacts(formLayout, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)
 
   await formLayout.fillEventLocationTextBox(EVENT_LOCATION)
   await formLayout.checkYesEventLocationRadioButton()
@@ -94,13 +94,13 @@ async function scheduleHybrid(PRIMARY_FIRST_NAME: string, PRIMARY_LAST_NAME: str
   await formLayout.checkNoHealthInsuranceRadioButton()
   await formLayout.checkNoPhotoIdRadioButton()
 
-  await EventDetails(page, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)
-  await OnlineInformation(page, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN)
+  await EventDetails(formLayout, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)
+  await OnlineInformation(formLayout, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN)
 
   await formLayout.checkNoAlcoholRadioButton()
 
-  await RiskManagement(page, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)
-  await EmergencyResponse(page, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS)
+  await RiskManagement(formLayout, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)
+  await EmergencyResponse(formLayout, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS)
 
   await formLayout.checkNoTransportationRadioButton()
   await formLayout.checkNoOutOfProvinceRadioButton()
@@ -109,7 +109,7 @@ async function scheduleHybrid(PRIMARY_FIRST_NAME: string, PRIMARY_LAST_NAME: str
   await formLayout.fillCleanupTextBox(LOGISTICS_CLEANUP_PEOPLE)
   await formLayout.checkNoOvernightRadioButton()
   
-  await Logistics(page)
+  await Logistics(formLayout)
 
   await formLayout.fillRightsTextBox(LOGISICS_SAFETY_CONCENRS)
   

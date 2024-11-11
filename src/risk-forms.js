@@ -63,7 +63,7 @@ function scheduleOnline(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_
                     return [4 /*yield*/, formLayout.clickOnlineButton()];
                 case 4:
                     _a.sent();
-                    return [4 /*yield*/, (0, contacts_1.Contacts)(page, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)];
+                    return [4 /*yield*/, (0, contacts_1.Contacts)(formLayout, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)];
                 case 5:
                     _a.sent();
                     return [4 /*yield*/, formLayout.fillExpectedOnlineAttendeesTextBox(EVENT_EXPECTED_ATTENDEES)];
@@ -72,16 +72,16 @@ function scheduleOnline(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_
                     return [4 /*yield*/, formLayout.checkYesRegistrationRadioButton()];
                 case 7:
                     _a.sent();
-                    return [4 /*yield*/, (0, event_details_1.EventDetails)(page, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)];
+                    return [4 /*yield*/, (0, event_details_1.EventDetails)(formLayout, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)];
                 case 8:
                     _a.sent();
-                    return [4 /*yield*/, (0, online_information_1.OnlineInformation)(page, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN)];
+                    return [4 /*yield*/, (0, online_information_1.OnlineInformation)(formLayout, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN)];
                 case 9:
                     _a.sent();
-                    return [4 /*yield*/, (0, risk_management_1.RiskManagement)(page, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)];
+                    return [4 /*yield*/, (0, risk_management_1.RiskManagement)(formLayout, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)];
                 case 10:
                     _a.sent();
-                    return [4 /*yield*/, (0, logistics_1.Logistics)(page)];
+                    return [4 /*yield*/, (0, logistics_1.Logistics)(formLayout)];
                 case 11:
                     _a.sent();
                     return [4 /*yield*/, formLayout.fillSpecialConcernsOnlineTextBox(LOGISICS_SAFETY_CONCENRS)
@@ -113,7 +113,7 @@ function scheduleInPerson(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETO
                     return [4 /*yield*/, formLayout.clickInPersonButton()];
                 case 4:
                     _a.sent();
-                    return [4 /*yield*/, (0, contacts_1.Contacts)(page, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)];
+                    return [4 /*yield*/, (0, contacts_1.Contacts)(formLayout, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)];
                 case 5:
                     _a.sent();
                     return [4 /*yield*/, formLayout.fillEventLocationTextBox(EVENT_LOCATION)];
@@ -134,16 +134,16 @@ function scheduleInPerson(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETO
                     return [4 /*yield*/, formLayout.checkNoPhotoIdRadioButton()];
                 case 11:
                     _a.sent();
-                    return [4 /*yield*/, (0, event_details_1.EventDetails)(page, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)];
+                    return [4 /*yield*/, (0, event_details_1.EventDetails)(formLayout, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)];
                 case 12:
                     _a.sent();
                     return [4 /*yield*/, formLayout.checkNoAlcoholRadioButton()];
                 case 13:
                     _a.sent();
-                    return [4 /*yield*/, (0, risk_management_1.RiskManagement)(page, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)];
+                    return [4 /*yield*/, (0, risk_management_1.RiskManagement)(formLayout, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)];
                 case 14:
                     _a.sent();
-                    return [4 /*yield*/, (0, emergency_response_1.EmergencyResponse)(page, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS)];
+                    return [4 /*yield*/, (0, emergency_response_1.EmergencyResponse)(formLayout, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS)];
                 case 15:
                     _a.sent();
                     return [4 /*yield*/, formLayout.checkNoTransportationRadioButton()];
@@ -164,7 +164,7 @@ function scheduleInPerson(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETO
                     return [4 /*yield*/, formLayout.checkNoOvernightRadioButton()];
                 case 21:
                     _a.sent();
-                    return [4 /*yield*/, (0, logistics_1.Logistics)(page)];
+                    return [4 /*yield*/, (0, logistics_1.Logistics)(formLayout)];
                 case 22:
                     _a.sent();
                     return [4 /*yield*/, formLayout.fillRightsTextBox(LOGISICS_SAFETY_CONCENRS)
@@ -196,7 +196,7 @@ function scheduleHybrid(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_
                     return [4 /*yield*/, formLayout.clickHybridButton()];
                 case 4:
                     _a.sent();
-                    return [4 /*yield*/, (0, contacts_1.Contacts)(page, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)];
+                    return [4 /*yield*/, (0, contacts_1.Contacts)(formLayout, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)];
                 case 5:
                     _a.sent();
                     return [4 /*yield*/, formLayout.fillEventLocationTextBox(EVENT_LOCATION)];
@@ -220,19 +220,19 @@ function scheduleHybrid(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_
                     return [4 /*yield*/, formLayout.checkNoPhotoIdRadioButton()];
                 case 12:
                     _a.sent();
-                    return [4 /*yield*/, (0, event_details_1.EventDetails)(page, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)];
+                    return [4 /*yield*/, (0, event_details_1.EventDetails)(formLayout, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)];
                 case 13:
                     _a.sent();
-                    return [4 /*yield*/, (0, online_information_1.OnlineInformation)(page, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN)];
+                    return [4 /*yield*/, (0, online_information_1.OnlineInformation)(formLayout, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN)];
                 case 14:
                     _a.sent();
                     return [4 /*yield*/, formLayout.checkNoAlcoholRadioButton()];
                 case 15:
                     _a.sent();
-                    return [4 /*yield*/, (0, risk_management_1.RiskManagement)(page, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)];
+                    return [4 /*yield*/, (0, risk_management_1.RiskManagement)(formLayout, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)];
                 case 16:
                     _a.sent();
-                    return [4 /*yield*/, (0, emergency_response_1.EmergencyResponse)(page, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS)];
+                    return [4 /*yield*/, (0, emergency_response_1.EmergencyResponse)(formLayout, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS)];
                 case 17:
                     _a.sent();
                     return [4 /*yield*/, formLayout.checkNoTransportationRadioButton()];
@@ -253,7 +253,7 @@ function scheduleHybrid(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_
                     return [4 /*yield*/, formLayout.checkNoOvernightRadioButton()];
                 case 23:
                     _a.sent();
-                    return [4 /*yield*/, (0, logistics_1.Logistics)(page)];
+                    return [4 /*yield*/, (0, logistics_1.Logistics)(formLayout)];
                 case 24:
                     _a.sent();
                     return [4 /*yield*/, formLayout.fillRightsTextBox(LOGISICS_SAFETY_CONCENRS)

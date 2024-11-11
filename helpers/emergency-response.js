@@ -37,29 +37,29 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmergencyResponse = EmergencyResponse;
-function EmergencyResponse(page, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS) {
+function EmergencyResponse(formLayout, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, page.locator('input[name="emergency_firstaid"]').first().check()];
+                case 0: return [4 /*yield*/, formLayout.checkNoEmergencyFirstAidRadioButton()];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="emergency_hospital"]').nth(1).check()];
+                    return [4 /*yield*/, formLayout.checkYesEmergencyHospitalRadioButton()];
                 case 2:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="emergency_evac"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoEmergencyEvacRadioButton()];
                 case 3:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="emergency_flames"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoEmergencyFlamesRadioButton()];
                 case 4:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('fieldset').filter({ hasText: 'Will crowd control measures' }).getByLabel('No').check()];
+                    return [4 /*yield*/, formLayout.checkNoEmergencyCrowdControlRadioButton()];
                 case 5:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Are there any other special').fill(EMERGENCY_SAFETY_CONCERNS)];
+                    return [4 /*yield*/, formLayout.fillEmergencySafetyConcernsTextBox(EMERGENCY_SAFETY_CONCERNS)];
                 case 6:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('#safety_risk').fill(EMERGENCY_SAFETY_RISKS)];
+                    return [4 /*yield*/, formLayout.fillEmergencySafetyRisksTextBox(EMERGENCY_SAFETY_RISKS)];
                 case 7:
                     _a.sent();
                     return [2 /*return*/];

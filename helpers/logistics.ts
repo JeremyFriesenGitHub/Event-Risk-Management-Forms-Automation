@@ -1,8 +1,10 @@
-export async function Logistics(page: any) {
-    await page.locator('input[name="contracts_vendor"]').first().check();
-    await page.locator('input[name="contracts_liability"]').first().check() 
-    await page.locator('input[name="contracts_insurance_rental"]').first().check()
-    await page.locator('input[name="contracts_insurance_certificate"]').first().check()
-    await page.locator('input[name="rights_implications"]').nth(1).check()
-    await page.locator('input[name="rights_risks"]').first().check()
-  }
+import { FormsLayout } from '../src/pom'
+
+export async function Logistics(formLayout: FormsLayout) {
+    await formLayout.checkNoContractsVendorRadioButton()
+    await formLayout.checkNoContractsLiabilityRadioButton()
+    await formLayout.checkNoContractsInsuranceRentalRadioButton()
+    await formLayout.checkNoContractsInsuranceCertificateRadioButton()
+    await formLayout.checkYesRightsImplicationsRadioButton()
+    await formLayout.checkNoRightsRisksRadioButton()
+}

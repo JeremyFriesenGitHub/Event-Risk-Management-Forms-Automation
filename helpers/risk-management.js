@@ -37,20 +37,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RiskManagement = RiskManagement;
-function RiskManagement(page, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL) {
+function RiskManagement(formLayout, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, page.locator('fieldset').filter({ hasText: 'Will there be any speaker(s)' }).getByLabel('Yes', { exact: true }).check()]; //yes for speakers
+                case 0: return [4 /*yield*/, formLayout.checkYesSpeakersRadioButton()];
                 case 1:
-                    _a.sent(); //yes for speakers
-                    return [4 /*yield*/, page.getByLabel('What topics will the speaker(').fill(RISK_SPEAKER_TOPICS)];
+                    _a.sent();
+                    return [4 /*yield*/, formLayout.speakersTopicsTextBox.fill(RISK_SPEAKER_TOPICS)];
                 case 2:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Please provide full name(s)').fill(RISK_SPEAKER_FULL_NAMES)];
+                    return [4 /*yield*/, formLayout.speakersFullNamesTextBox.fill(RISK_SPEAKER_FULL_NAMES)];
                 case 3:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Does the speaker have a').fill(RISK_SPEAKER_WEBSITE_URL)];
+                    return [4 /*yield*/, formLayout.speakersWebsiteUrlTextBox.fill(RISK_SPEAKER_WEBSITE_URL)];
                 case 4:
                     _a.sent();
                     return [2 /*return*/];
