@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc risk-forms.ts && node risk-forms.js"
+    "start": "tsc src/risk-forms.ts && node src/risk-forms.js"
   },
   "keywords": [],
   "author": "",
