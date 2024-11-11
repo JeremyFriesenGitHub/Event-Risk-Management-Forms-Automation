@@ -43,10 +43,11 @@ var event_details_1 = require("../helpers/event-details");
 var emergency_response_1 = require("../helpers/emergency-response");
 var logistics_1 = require("../helpers/logistics");
 var online_information_1 = require("../helpers/online-information");
+var pom_1 = require("./pom");
 // -------------------------------------------------------------------ONLINE--------------------------------------------------------------
 function scheduleOnline(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL, LOGISICS_SAFETY_CONCENRS) {
     return __awaiter(this, void 0, void 0, function () {
-        var browser, page;
+        var browser, page, formLayout;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, playwright_1.chromium.launch({ headless: false })];
@@ -55,19 +56,20 @@ function scheduleOnline(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_
                     return [4 /*yield*/, browser.newPage()];
                 case 2:
                     page = _a.sent();
-                    return [4 /*yield*/, page.goto('https://stuapps.carleton.ca/sarms/event-risk')];
+                    formLayout = new pom_1.FormsLayout(page);
+                    return [4 /*yield*/, formLayout.goto()];
                 case 3:
                     _a.sent();
-                    return [4 /*yield*/, page.getByRole('link', { name: 'Online' }).click()];
+                    return [4 /*yield*/, formLayout.clickOnlineButton()];
                 case 4:
                     _a.sent();
                     return [4 /*yield*/, (0, contacts_1.Contacts)(page, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)];
                 case 5:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Number of expected online').fill(EVENT_EXPECTED_ATTENDEES)];
+                    return [4 /*yield*/, formLayout.fillExpectedOnlineAttendeesTextBox(EVENT_EXPECTED_ATTENDEES)];
                 case 6:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="event_tix"]').nth(3).check()];
+                    return [4 /*yield*/, formLayout.checkYesRegistrationRadioButton()];
                 case 7:
                     _a.sent();
                     return [4 /*yield*/, (0, event_details_1.EventDetails)(page, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)];
@@ -82,8 +84,8 @@ function scheduleOnline(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_
                     return [4 /*yield*/, (0, logistics_1.Logistics)(page)];
                 case 11:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Are there any other special').fill(LOGISICS_SAFETY_CONCENRS)
-                        // await page.getByRole('button', { name: 'Submit' }).click()
+                    return [4 /*yield*/, formLayout.fillSpecialConcernsOnlineTextBox(LOGISICS_SAFETY_CONCENRS)
+                        // await formLayout.clickSubmitButton()
                     ];
                 case 12:
                     _a.sent();
@@ -93,9 +95,9 @@ function scheduleOnline(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_
     });
 }
 // -------------------------------------------------------------------IN-PERSON--------------------------------------------------------------
-function scheduleInPerson(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_LOCATION, EVENT_EXPECTED_ATTENDEES, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS, LOGISICS_SAFETY_CONCENRS) {
+function scheduleInPerson(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_LOCATION, EVENT_EXPECTED_ATTENDEES, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS, LOGISTICS_CLEANUP_PEOPLE, LOGISICS_SAFETY_CONCENRS) {
     return __awaiter(this, void 0, void 0, function () {
-        var browser, page;
+        var browser, page, formLayout;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, playwright_1.chromium.launch({ headless: false })];
@@ -104,37 +106,38 @@ function scheduleInPerson(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETO
                     return [4 /*yield*/, browser.newPage()];
                 case 2:
                     page = _a.sent();
-                    return [4 /*yield*/, page.goto('https://stuapps.carleton.ca/sarms/event-risk')];
+                    formLayout = new pom_1.FormsLayout(page);
+                    return [4 /*yield*/, formLayout.goto()];
                 case 3:
                     _a.sent();
-                    return [4 /*yield*/, page.getByRole('link', { name: 'In-Person' }).click()];
+                    return [4 /*yield*/, formLayout.clickInPersonButton()];
                 case 4:
                     _a.sent();
                     return [4 /*yield*/, (0, contacts_1.Contacts)(page, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)];
                 case 5:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Event LocationIf on campus,').fill(EVENT_LOCATION)];
+                    return [4 /*yield*/, formLayout.fillEventLocationTextBox(EVENT_LOCATION)];
                 case 6:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="event_location_res"]').nth(1).check()];
+                    return [4 /*yield*/, formLayout.checkYesEventLocationRadioButton()];
                 case 7:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Number of expected').fill(EVENT_EXPECTED_ATTENDEES)];
+                    return [4 /*yield*/, formLayout.fillExpectedAttendeesTextBox(EVENT_EXPECTED_ATTENDEES)];
                 case 8:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="event_food"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoFoodRadioButton()];
                 case 9:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="event_health_insurance"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoHealthInsuranceRadioButton()];
                 case 10:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="event_photo_id"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoPhotoIdRadioButton()];
                 case 11:
                     _a.sent();
                     return [4 /*yield*/, (0, event_details_1.EventDetails)(page, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)];
                 case 12:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="risk_alcohol"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoAlcoholRadioButton()];
                 case 13:
                     _a.sent();
                     return [4 /*yield*/, (0, risk_management_1.RiskManagement)(page, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)];
@@ -143,29 +146,29 @@ function scheduleInPerson(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETO
                     return [4 /*yield*/, (0, emergency_response_1.EmergencyResponse)(page, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS)];
                 case 15:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="travel_transportation"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoTransportationRadioButton()];
                 case 16:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="out_of_province"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoOutOfProvinceRadioButton()];
                 case 17:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="fmp_garbage"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoGarbageRadioButton()];
                 case 18:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="fmp_cleanup"]').nth(1).check()];
+                    return [4 /*yield*/, formLayout.checkYesCleanupRadioButton()];
                 case 19:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Please provide details as to').fill('The organizers')];
+                    return [4 /*yield*/, formLayout.fillCleanupTextBox(LOGISTICS_CLEANUP_PEOPLE)];
                 case 20:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="fmp_overnight"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoOvernightRadioButton()];
                 case 21:
                     _a.sent();
                     return [4 /*yield*/, (0, logistics_1.Logistics)(page)];
                 case 22:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('#rights_other').fill(LOGISICS_SAFETY_CONCENRS)
-                        // await page.getByRole('button', { name: 'Submit' }).click()
+                    return [4 /*yield*/, formLayout.fillRightsTextBox(LOGISICS_SAFETY_CONCENRS)
+                        // await formLayout.clickSubmitButton()
                     ];
                 case 23:
                     _a.sent();
@@ -175,9 +178,9 @@ function scheduleInPerson(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETO
     });
 }
 // -------------------------------------------------------------------HYBRID--------------------------------------------------------------
-function scheduleHybrid(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_LOCATION, EVENT_EXPECTED_ATTENDEES, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS, LOGISICS_SAFETY_CONCENRS) {
+function scheduleHybrid(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_LOCATION, EVENT_EXPECTED_ATTENDEES, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS, LOGISTICS_CLEANUP_PEOPLE, LOGISICS_SAFETY_CONCENRS) {
     return __awaiter(this, void 0, void 0, function () {
-        var browser, page;
+        var browser, page, formLayout;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, playwright_1.chromium.launch({ headless: false })];
@@ -186,34 +189,35 @@ function scheduleHybrid(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_
                     return [4 /*yield*/, browser.newPage()];
                 case 2:
                     page = _a.sent();
-                    return [4 /*yield*/, page.goto('https://stuapps.carleton.ca/sarms/event-risk')];
+                    formLayout = new pom_1.FormsLayout(page);
+                    return [4 /*yield*/, formLayout.goto()];
                 case 3:
                     _a.sent();
-                    return [4 /*yield*/, page.getByRole('link', { name: 'Hybrid' }).click()];
+                    return [4 /*yield*/, formLayout.clickHybridButton()];
                 case 4:
                     _a.sent();
                     return [4 /*yield*/, (0, contacts_1.Contacts)(page, PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_ID, PRIMARY_EMAIL, PRIMARY_PHONE, SECONDARY_FIRST_NAME, SECONDARY_LAST_NAME, SECONDARY_CARLETON_ID, SECONDARY_EMAIL, SECONDARY_PHONE)];
                 case 5:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Event LocationIf on campus,').fill(EVENT_LOCATION)];
+                    return [4 /*yield*/, formLayout.fillEventLocationTextBox(EVENT_LOCATION)];
                 case 6:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="event_location_res"]').nth(1).check()];
+                    return [4 /*yield*/, formLayout.checkYesEventLocationRadioButton()];
                 case 7:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Number of expected').fill(EVENT_EXPECTED_ATTENDEES)];
+                    return [4 /*yield*/, formLayout.fillExpectedAttendeesTextBox(EVENT_EXPECTED_ATTENDEES)];
                 case 8:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="event_tix"]').nth(1).check()];
+                    return [4 /*yield*/, formLayout.checkYesHybridRegistrationRadioButton()];
                 case 9:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="event_food"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoFoodRadioButton()];
                 case 10:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="event_health_insurance"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoHealthInsuranceRadioButton()];
                 case 11:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="event_photo_id"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoPhotoIdRadioButton()];
                 case 12:
                     _a.sent();
                     return [4 /*yield*/, (0, event_details_1.EventDetails)(page, EVENT_TITLE, EVENT_DATE, EVENT_START_TIME, EVENT_END_TIME, EVENT_DESCRIPTION, EVENT_EXPECTED_ATTENDEES)];
@@ -222,7 +226,7 @@ function scheduleHybrid(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_
                     return [4 /*yield*/, (0, online_information_1.OnlineInformation)(page, ONLINE_PLATFORM, ONLINE_TOPICS, ONLINE_LOCATION, ONLINE_ORGANIZERS, ONLINE_ORGANIZERS_ATTENDENCE_FROM_ORIGIN)];
                 case 14:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="risk_alcohol"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoAlcoholRadioButton()];
                 case 15:
                     _a.sent();
                     return [4 /*yield*/, (0, risk_management_1.RiskManagement)(page, RISK_SPEAKER_TOPICS, RISK_SPEAKER_FULL_NAMES, RISK_SPEAKER_WEBSITE_URL)];
@@ -231,29 +235,29 @@ function scheduleHybrid(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_
                     return [4 /*yield*/, (0, emergency_response_1.EmergencyResponse)(page, EMERGENCY_SAFETY_CONCERNS, EMERGENCY_SAFETY_RISKS)];
                 case 17:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="travel_transportation"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoTransportationRadioButton()];
                 case 18:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="out_of_province"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoOutOfProvinceRadioButton()];
                 case 19:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="fmp_garbage"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoGarbageRadioButton()];
                 case 20:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="fmp_cleanup"]').nth(1).check()];
+                    return [4 /*yield*/, formLayout.checkYesCleanupRadioButton()];
                 case 21:
                     _a.sent();
-                    return [4 /*yield*/, page.getByLabel('Please provide details as to').fill('The organizers')];
+                    return [4 /*yield*/, formLayout.fillCleanupTextBox(LOGISTICS_CLEANUP_PEOPLE)];
                 case 22:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('input[name="fmp_overnight"]').first().check()];
+                    return [4 /*yield*/, formLayout.checkNoOvernightRadioButton()];
                 case 23:
                     _a.sent();
                     return [4 /*yield*/, (0, logistics_1.Logistics)(page)];
                 case 24:
                     _a.sent();
-                    return [4 /*yield*/, page.locator('#rights_other').fill(LOGISICS_SAFETY_CONCENRS)
-                        // await page.getByRole('button', { name: 'Submit' }).click()
+                    return [4 /*yield*/, formLayout.fillRightsTextBox(LOGISICS_SAFETY_CONCENRS)
+                        // await formLayout.clickSubmitButton()
                     ];
                 case 25:
                     _a.sent();
@@ -265,13 +269,13 @@ function scheduleHybrid(PRIMARY_FIRST_NAME, PRIMARY_LAST_NAME, PRIMARY_CARLETON_
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, scheduleOnline('Raef', 'Sarofiem', '101266475', 'raefsarofiem@cmail.carleton.ca', 'RAEF_PHONE_NUMBER', 'Ajaan', 'Nalliah', '101325463', 'ajaannalliah@cmail.carleton.ca', '6478773250', 'Event Title', '2024/10/23', '10:00 AM', '12:00 PM', 'Event Description', '100', 'Zoom', 'Technology', 'Online', '5', '2', 'NEED_INPUT_HERE', 'Raef Sarofiem, Ajaan Nalliah', 'https://cuhacking.ca/', 'None')];
+            case 0: return [4 /*yield*/, scheduleOnline('Raef', 'Sarofiem', '101266475', 'raefsarofiem@cmail.carleton.ca', 'RAEF_PHONE_NUMBER', 'Ajaan', 'Nalliah', '101325463', 'ajaannalliah@cmail.carleton.ca', '6478773250', 'INPUT_FROM_HERE', '2024/10/23', '10:00 AM', '12:00 PM', 'Event Description', '100', 'Zoom', 'Technology', 'Online', '5', '2', 'INPUT_UNTIL_HERE', 'Raef Sarofiem, Ajaan Nalliah', 'https://cuhacking.ca/', 'None')];
             case 1:
                 _a.sent();
-                return [4 /*yield*/, scheduleInPerson('Raef', 'Sarofiem', '101266475', 'raefsarofiem@cmail.carleton.ca', 'RAEF_PHONE_NUMBER', 'Ajaan', 'Nalliah', '101325463', 'ajaannalliah@cmail.carleton.ca', '6478773250', 'Event Title', '2024/10/23', '10:00 AM', '12:00 PM', 'Event Description', 'Event Location', '100', 'NEED_INPUT_HERE', 'Raef Sarofiem, Ajaan Nalliah', 'https://cuhacking.ca/', 'None', 'None', 'None')];
+                return [4 /*yield*/, scheduleInPerson('Raef', 'Sarofiem', '101266475', 'raefsarofiem@cmail.carleton.ca', 'RAEF_PHONE_NUMBER', 'Ajaan', 'Nalliah', '101325463', 'ajaannalliah@cmail.carleton.ca', '6478773250', 'INPUT_FROM_HERE', '2024/10/23', '10:00 AM', '12:00 PM', 'Event Description', 'Event Location', '100', 'INPUT_UNTIL_HERE', 'Raef Sarofiem, Ajaan Nalliah', 'https://cuhacking.ca/', 'None', 'None', 'The organizers', 'None')];
             case 2:
                 _a.sent();
-                return [4 /*yield*/, scheduleHybrid('Raef', 'Sarofiem', '101266475', 'raefsarofiem@cmail.carleton.ca', 'RAEF_PHONE_NUMBER', 'Ajaan', 'Nalliah', '101325463', 'ajaannalliah@cmail.carleton.ca', '6478773250', 'Event Title', '2024/10/23', '10:00 AM', '12:00 PM', 'Event Description', 'Event Location', '100', 'Zoom', 'Technology', 'Online', '5', '2', 'Cybersecurity', 'Raef Sarofiem, Ajaan Nalliah', 'https://cuhacking.ca/', 'None', 'None', 'None')];
+                return [4 /*yield*/, scheduleHybrid('Raef', 'Sarofiem', '101266475', 'raefsarofiem@cmail.carleton.ca', 'RAEF_PHONE_NUMBER', 'Ajaan', 'Nalliah', '101325463', 'ajaannalliah@cmail.carleton.ca', '6478773250', 'INPUT_FROM_HERE', '2024/10/23', '10:00 AM', '12:00 PM', 'Event Description', 'Event Location', '100', 'Zoom', 'Technology', 'Online', '5', '2', 'INPUT_UNTIL_HERE', 'Raef Sarofiem, Ajaan Nalliah', 'https://cuhacking.ca/', 'None', 'None', 'The organizers', 'None')];
             case 3:
                 _a.sent();
                 return [2 /*return*/];
