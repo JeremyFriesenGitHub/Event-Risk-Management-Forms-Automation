@@ -4,9 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "online": "tsc src/online-input.ts && node src/online-input.js",
-    "in-person": "tsc src/in-person-input.ts && node src/in-person-input.js",
-    "hybrid": "tsc src/hybrid-input.ts && node src/hybrid-input.js"
+    "online": "tsc src/input/online-input.ts && node src/input/online-input.js",
+    "in-person": "tsc src/input/in-person-input.ts && node src/input/in-person-input.js",
+    "hybrid": "tsc src/input/hybrid-input.ts && node src/input/hybrid-input.js"
   },
   "keywords": [],
   "author": "",

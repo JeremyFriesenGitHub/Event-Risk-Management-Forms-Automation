@@ -36,11 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var online_1 = require("./online");
+var in_person_1 = require("../in-person");
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, (0, online_1.scheduleOnline)('Raef', 'Sarofiem', '101266475', 'raefsarofiem@cmail.carleton.ca', 'RAEF_PHONE_NUMBER', 'Ajaan', 'Nalliah', '101325463', 'ajaannalliah@cmail.carleton.ca', '6478773250', 'INPUT_FROM_HERE', '2024/10/23', '10:00 AM', '12:00 PM', 'Event Description', '100', 'Zoom', 'Technology', 'Online', '5', '2', 'INPUT_UNTIL_HERE', 'Raef Sarofiem, Ajaan Nalliah', 'https://cuhacking.ca/', 'None')];
+            case 0: return [4 /*yield*/, (0, in_person_1.scheduleInPerson)('Raef', 'Sarofiem', '101266475', 'raefsarofiem@cmail.carleton.ca', 'RAEF_PHONE_NUMBER', 'Ajaan', 'Nalliah', '101325463', 'ajaannalliah@cmail.carleton.ca', '6478773250', 'INPUT_FROM_HERE', '2024/10/23', '10:00 AM', '12:00 PM', 'Event Description', 'Event Location', '100', 'INPUT_UNTIL_HERE', 'Raef Sarofiem, Ajaan Nalliah', 'https://cuhacking.ca/', 'None', 'None', 'The organizers', 'None')];
             case 1:
                 _a.sent();
                 return [2 /*return*/];
